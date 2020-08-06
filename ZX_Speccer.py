@@ -41,7 +41,7 @@ for infile in sys.argv[1:]:
                                             testRed = (R1 * dither) + (R2 * (1 - dither))
                                             testGreen = (G1 * dither) + (G2 * (1 - dither))
                                             testBlue = (B1 * dither) + (B2 * (1 - dither))
-                                            pixelDiff = abs(testRed - chR) + abs(testGreen - chG) + abs(testBlue - chB)
+                                            pixelDiff = math.sqrt((testRed - chR)**2 + (testGreen - chG)**2 + (testBlue - chB)**2)
                                             if(pixelDiff < testPixel.diff):
                                                 testPixel.diff = pixelDiff
                                                 testPixel.r1 = round(R1)
